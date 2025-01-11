@@ -554,30 +554,27 @@ struct Complex* resize_Complex_vector(struct Complex* old_vector, uint8_t old_si
         return NULL;
     }
 
-    // Copiar elementos del vector original al nuevo vector
-    uint8_t min_size;
-    if(old_size < new_size)
+    if (new_size > old_size) 
     {
-        min_size =  old_size;
-    }
-    else
+        for (uint8_t k = 0; k < old_size; k++) 
+        {
+            new_vector[k].real = old_vector[k].real;
+            new_vector[k].imag = old_vector[k].imag;
+        }
+        for (uint8_t k = old_size; k < new_size; k++) 
+        {
+            new_vector[k].real = 0.0;
+            new_vector[k].imag = 0.0;
+        }
+    } 
+    else 
     {
-        min_size = new_size;
+        for (uint8_t k = 0; k < new_size; k++) 
+        {
+            new_vector[k].real = old_vector[k].real;
+            new_vector[k].imag = old_vector[k].imag;
+        }
     }
-    for (uint8_t k = 0; k < min_size; k++) 
-    {
-        new_vector[k].real = old_vector[k].real;
-        new_vector[k].imag = old_vector[k].imag;
-        //printf("\n\nCopiando: (%.2f, %.2f) al nuevo vector.\n", old_vector[k].real, old_vector[k].imag);
-    }
-
-    // Inicializar los nuevos elementos si el vector crece
-    for (uint8_t k = old_size; k < new_size; k++) 
-    {
-        new_vector[k].real = 0.0f;
-        new_vector[k].imag = 0.0f;
-    }
-
 
     free(old_vector);
     old_vector = NULL;
