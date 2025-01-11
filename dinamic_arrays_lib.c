@@ -14,12 +14,15 @@
 * @param vec Puntero al vector de enteros.
 * @param cant Cantidad de elementos en el vector.
 */
-void show_int_vector(int *vec, uint8_t cant) {
-    if (vec == NULL) {
+void show_int_vector(int *vec, uint8_t cant) 
+{
+    if (vec == NULL) 
+    {
         printf("El vector es NULL.\n");
         return;
     }
-    for (uint8_t i = 0; i < cant; i++) {
+    for (uint8_t i = 0; i < cant; i++) 
+    {
         printf("%d\t", vec[i]);
     }
     printf("\n");
@@ -32,27 +35,41 @@ void show_int_vector(int *vec, uint8_t cant) {
 * @param new_size Nuevo tamaño deseado.
 * @return Puntero al nuevo vector redimensionado.
 */
-int* resize_int_vector(int* old_vector, uint8_t old_size, uint8_t new_size) {
-    if (new_size == 0) {
+int* resize_int_vector(int* old_vector, uint8_t old_size, uint8_t new_size) 
+{
+    if (new_size == 0) 
+    {
         printf("El nuevo tamaño no puede ser 0.\n");
+        return NULL;
+    }
+    if (new_size == old_size) 
+    {
+        printf("El nuevo tamaño es igual al tamaño viejo.\n");
         return NULL;
     }
 
     int* new_vector = (int*)malloc(new_size * sizeof(int));
-    if (new_vector == NULL) {
+    if (new_vector == NULL) 
+    {
         printf("Fallo en la asignación de memoria.\n");
         return NULL;
     }
 
-    if (new_size > old_size) {
-        for (uint8_t k = 0; k < old_size; k++) {
+    if (new_size > old_size) 
+    {
+        for (uint8_t k = 0; k < old_size; k++) 
+        {
             new_vector[k] = old_vector[k];
         }
-        for (uint8_t k = old_size; k < new_size; k++) {
+        for (uint8_t k = old_size; k < new_size; k++) 
+        {
             new_vector[k] = 0; // Inicialización
         }
-    } else {
-        for (uint8_t k = 0; k < new_size; k++) {
+    } 
+    else 
+    {
+        for (uint8_t k = 0; k < new_size; k++)
+        {
             new_vector[k] = old_vector[k];
         }
     }
@@ -69,20 +86,29 @@ int* resize_int_vector(int* old_vector, uint8_t old_size, uint8_t new_size) {
 * @param item_pos Posición del elemento a eliminar.
 * @return Puntero al vector resultante.
 */
-int* removeItem_int_vector(int* vec, uint8_t vec_size, uint8_t item_pos) {
-    if (vec == NULL || item_pos >= vec_size) {
+int* removeItem_int_vector(int* vec, uint8_t vec_size, uint8_t item_pos) 
+{
+    if (vec == NULL || item_pos >= vec_size) 
+    {
         printf("Posición inválida para eliminar.\n");
         return NULL;
     }
 
     int* resulting_vector = (int*)malloc((vec_size - 1) * sizeof(int));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignación de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < vec_size - 1; k++) {
-        resulting_vector[k] = (k < item_pos) ? vec[k] : vec[k + 1];
+    for (uint8_t k = 0, j = 0; k < vec_size; k++) 
+    {
+        if (k != item_pos) 
+        {
+            resulting_vector[j] = vec[k];
+            resulting_vector[j] = vec[k];
+            j++;
+        }
     }
 
     free(vec);
@@ -98,24 +124,33 @@ int* removeItem_int_vector(int* vec, uint8_t vec_size, uint8_t item_pos) {
 * @param insert_value Valor a insertar.
 * @return Puntero al vector resultante.
 */
-int* insertItem_int_vector(int* vec, uint8_t vec_size, uint8_t insert_pos, int insert_value) {
-    if (vec == NULL || insert_pos > vec_size) {
+int* insertItem_int_vector(int* vec, uint8_t vec_size, uint8_t insert_pos, int insert_value) 
+{
+    if (vec == NULL || insert_pos > vec_size) 
+    {
         printf("Posición inválida para insertar.\n");
         return NULL;
     }
 
     int* resulting_vector = (int*)malloc((vec_size + 1) * sizeof(int));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignación de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < vec_size + 1; k++) {
-        if (k < insert_pos) {
+    for (uint8_t k = 0; k < vec_size + 1; k++) 
+    {
+        if (k < insert_pos) 
+        {
             resulting_vector[k] = vec[k];
-        } else if (k == insert_pos) {
+        } 
+        else if (k == insert_pos) 
+        {
             resulting_vector[k] = insert_value;
-        } else {
+        } 
+        else 
+        {
             resulting_vector[k] = vec[k - 1];
         }
     }
@@ -133,22 +168,27 @@ int* insertItem_int_vector(int* vec, uint8_t vec_size, uint8_t insert_pos, int i
 * @param right_size Tamaño del segundo vector.
 * @return Puntero al vector resultante.
 */
-int* concat_int_vector(int* vec_left, uint8_t left_size, int* vec_right, uint8_t right_size) {
-    if (vec_left == NULL || vec_right == NULL) {
+int* concat_int_vector(int* vec_left, uint8_t left_size, int* vec_right, uint8_t right_size) 
+{
+    if (vec_left == NULL || vec_right == NULL) 
+    {
         printf("Uno de los vectores es NULL.\n");
         return NULL;
     }
 
     int* resulting_vector = (int*)malloc((left_size + right_size) * sizeof(int));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignación de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < left_size; k++) {
+    for (uint8_t k = 0; k < left_size; k++) 
+    {
         resulting_vector[k] = vec_left[k];
     }
-    for (uint8_t m = 0; m < right_size; m++) {
+    for (uint8_t m = 0; m < right_size; m++) 
+    {
         resulting_vector[m + left_size] = vec_right[m];
     }
 
@@ -167,12 +207,15 @@ int* concat_int_vector(int* vec_left, uint8_t left_size, int* vec_right, uint8_t
 * @param vec Puntero al vector de flotantes.
 * @param cant Cantidad de elementos en el vector.
 */
-void show_float_vector(float *vec, uint8_t cant) {
-    if (vec == NULL) {
+void show_float_vector(float *vec, uint8_t cant) 
+{
+    if (vec == NULL) 
+    {
         printf("El vector es NULL.\n");
         return;
     }
-    for (uint8_t i = 0; i < cant; i++) {
+    for (uint8_t i = 0; i < cant; i++) 
+    {
         printf("%.2f\t", vec[i]);
     }
     printf("\n");
@@ -185,9 +228,16 @@ void show_float_vector(float *vec, uint8_t cant) {
 * @param new_size Nuevo tamaño deseado.
 * @return Puntero al nuevo vector redimensionado.
 */
-float* resize_float_vector(float* old_vector, uint8_t old_size, uint8_t new_size) {
-    if (new_size == 0) {
+float* resize_float_vector(float* old_vector, uint8_t old_size, uint8_t new_size) 
+{
+    if (new_size == 0) 
+    {
         printf("El nuevo tama\u00f1o no puede ser 0.\n");
+        return NULL;
+    }
+    if (new_size == old_size) 
+    {
+        printf("El nuevo tamaño es igual al tamaño viejo.\n");
         return NULL;
     }
 
@@ -197,15 +247,21 @@ float* resize_float_vector(float* old_vector, uint8_t old_size, uint8_t new_size
         return NULL;
     }
 
-    if (new_size > old_size) {
-        for (uint8_t k = 0; k < old_size; k++) {
+    if (new_size > old_size) 
+    {
+        for (uint8_t k = 0; k < old_size; k++) 
+        {
             new_vector[k] = old_vector[k];
         }
-        for (uint8_t k = old_size; k < new_size; k++) {
+        for (uint8_t k = old_size; k < new_size; k++) 
+        {
             new_vector[k] = 0.0f;
         }
-    } else {
-        for (uint8_t k = 0; k < new_size; k++) {
+    } 
+    else 
+    {
+        for (uint8_t k = 0; k < new_size; k++) 
+        {
             new_vector[k] = old_vector[k];
         }
     }
@@ -222,20 +278,29 @@ float* resize_float_vector(float* old_vector, uint8_t old_size, uint8_t new_size
 * @param item_pos Posición del elemento a eliminar.
 * @return Puntero al vector resultante.
 */
-float* removeItem_float_vector(float* vec, uint8_t vec_size, uint8_t item_pos) {
-    if (vec == NULL || item_pos >= vec_size) {
+float* removeItem_float_vector(float* vec, uint8_t vec_size, uint8_t item_pos) 
+{
+    if (vec == NULL || item_pos >= vec_size) 
+    {
         printf("Posici\u00f3n inv\u00e1lida para eliminar.\n");
         return NULL;
     }
 
     float* resulting_vector = (float*)malloc((vec_size - 1) * sizeof(float));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignaci\u00f3n de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < vec_size - 1; k++) {
-        resulting_vector[k] = (k < item_pos) ? vec[k] : vec[k + 1];
+    for (uint8_t k = 0, j = 0; k < vec_size; k++) 
+    {
+        if (k != item_pos) 
+        {
+            resulting_vector[j] = vec[k];
+            resulting_vector[j] = vec[k];
+            j++;
+        }
     }
 
     free(vec);
@@ -251,24 +316,33 @@ float* removeItem_float_vector(float* vec, uint8_t vec_size, uint8_t item_pos) {
 * @param insert_value Valor a insertar.
 * @return Puntero al vector resultante.
 */
-float* insertItem_float_vector(float* vec, uint8_t vec_size, uint8_t insert_pos, float insert_value) {
-    if (vec == NULL || insert_pos > vec_size) {
+float* insertItem_float_vector(float* vec, uint8_t vec_size, uint8_t insert_pos, float insert_value) 
+{
+    if (vec == NULL || insert_pos > vec_size) 
+    {
         printf("Posici\u00f3n inv\u00e1lida para insertar.\n");
         return NULL;
     }
 
     float* resulting_vector = (float*)malloc((vec_size + 1) * sizeof(float));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignaci\u00f3n de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < vec_size + 1; k++) {
-        if (k < insert_pos) {
+    for (uint8_t k = 0; k < vec_size + 1; k++) 
+    {
+        if (k < insert_pos) 
+        {
             resulting_vector[k] = vec[k];
-        } else if (k == insert_pos) {
+        } 
+        else if (k == insert_pos) 
+        {
             resulting_vector[k] = insert_value;
-        } else {
+        } 
+        else 
+        {
             resulting_vector[k] = vec[k - 1];
         }
     }
@@ -353,7 +427,11 @@ double* resize_double_vector(double* old_vector, uint8_t old_size, uint8_t new_s
         printf("El nuevo tamaño no puede ser 0.\n");
         return NULL;
     }
-
+    if (new_size == old_size) 
+    {
+        printf("El nuevo tamaño es igual al tamaño viejo.\n");
+        return NULL;
+    }
     double* new_vector = (double*)malloc(new_size * sizeof(double));
     if (new_vector == NULL) 
     {
