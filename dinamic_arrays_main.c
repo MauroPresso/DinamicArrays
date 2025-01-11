@@ -6,11 +6,11 @@
 
 /*void llenar_int_vector(int *vec, uint8_t cant);
 
-void llenar_float_vector(float *vec, uint8_t cant);
+void llenar_float_vector(float *vec, uint8_t cant);*/
 
-void llenar_double_vector(double *vec, uint8_t cant);*/
+void llenar_double_vector(double *vec, uint8_t cant);
 
-void llenar_Complex_vector(struct Complex *vec, uint8_t cant);
+/*void llenar_Complex_vector(struct Complex *vec, uint8_t cant);*/
 
 int main()
 {
@@ -154,10 +154,49 @@ int main()
     uf = NULL;
     cadf = NULL;
 
-
+    */
     // VECTORES DE TIPO DOUBLE
     printf("\n\n\nVECTORES DE TIPO DOUBLE:");
 
+    // Inserting an item in vector V.
+    double* vod = (double*)malloc(10 * sizeof(double));
+    llenar_double_vector(vod, 10);
+    printf("\nVector V:\n");
+    show_double_vector(vod, 10);
+    double value;
+    value = (rand() / (float) RAND_MAX);
+    vod = insertItem_double_vector(vod, 10, 7, value);
+    printf("\nVector V (with a new item):\n");
+    show_double_vector(vod, 11);
+
+    // Removing an item from vector V.
+    vod = removeItem_double_vector(vod, 11, 7);
+    printf("\nVector V (without an old item):\n");
+    show_double_vector(vod, 10);
+
+    free(vod);
+    vod = NULL;
+    
+
+    // Resizing vector V.
+    double* vdo = (double*)malloc(10 * sizeof(double));
+    llenar_double_vector(vdo, 10);
+    printf("\nVector V:\n");
+    show_double_vector(vdo, 10);
+    vdo = resize_double_vector(vdo, 10, 5);
+    printf("\nVector V resized (new_size < old_size):\n");
+    show_double_vector(vdo, 5);
+
+    vdo = resize_double_vector(vdo, 5, 10);
+    printf("\nVector V resized (new_size > old_size):\n");
+    //llenar_double_vector(vdo, 10);
+    show_double_vector(vdo, 10);
+
+    free(vdo);
+    vdo = NULL;
+
+
+    // Chaining vectors
     double* vd = (double*)malloc(10 * sizeof(double));
     double* ud = (double*)malloc(5 * sizeof(double));
 
@@ -176,26 +215,6 @@ int main()
     printf("\nVector concatenado:\n");
     show_double_vector(cadd, 15);
 
-    // Resizing vector V.
-    vd = resize_double_vector(vd, 10, 5);
-    printf("\nVector V resized (new_size < old_size):\n");
-    show_double_vector(vd, 5);
-
-    vd = resize_double_vector(vd, 5, 10);
-    printf("\nVector V resized (new_size > old_size):\n");
-    llenar_double_vector(vd, 10);
-    show_double_vector(vd, 10);
-
-    // Inserting an item in vector V.
-    vd = insertItem_double_vector(vd, 10, 7, 137.98765432);
-    printf("\nVector V (with a new item):\n");
-    show_double_vector(vd, 11);
-
-    // Removing an item from vector V.
-    vd = removeItem_double_vector(vd, 11, 7);
-    printf("\nVector V (without an old item):\n");
-    show_double_vector(vd, 10);
-
     free(vd);
     free(ud);
     free(cadd);
@@ -204,7 +223,7 @@ int main()
     ud = NULL;
     cadd = NULL;
     
-    */
+    /*
     // VECTORES COMPLEJOS
     printf("\n\n\nVECTORES COMPLEJOS:");
     
@@ -253,6 +272,7 @@ int main()
     vco = NULL;
 
     //("\nMaria paso por aqui\n");
+    // Chaining vectors
     struct Complex* vc = (struct Complex*)malloc(10 * sizeof(struct Complex));
     struct Complex* uc = (struct Complex*)malloc(5 * sizeof(struct Complex));
     // vector dinamico V
@@ -277,7 +297,7 @@ int main()
     uc = NULL;
     cadc = NULL;
     //printf("\nMaria paso por aqui\n");
-    
+    */
     // FIN DEL PROGRAMA
     return 0;
 }
@@ -297,15 +317,15 @@ void llenar_float_vector(float *vec, uint8_t cant)
         vec[i] = (rand() / (float) RAND_MAX)*(1.0);
     }
 }
-
+*/
 void llenar_double_vector(double *vec, uint8_t cant)
 {
     for (int i = 0; i < cant; i++)
     {
-        vec[i] = (rand() / (float) RAND_MAX)*(1.0);
+        vec[i] = (rand() / (float) RAND_MAX);
     }
-}*/
-
+}
+/*
 void llenar_Complex_vector(struct Complex *vec, uint8_t cant)
 {
     for (int i = 0; i < cant; i++)
@@ -314,3 +334,4 @@ void llenar_Complex_vector(struct Complex *vec, uint8_t cant)
         vec[i].imag = (rand() / (float) RAND_MAX);
     }
 }
+*/
