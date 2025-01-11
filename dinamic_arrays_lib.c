@@ -286,22 +286,27 @@ float* insertItem_float_vector(float* vec, uint8_t vec_size, uint8_t insert_pos,
 * @param right_size Tamaño del segundo vector.
 * @return Puntero al vector resultante.
 */
-float* concat_float_vector(float* vec_left, uint8_t left_size, float* vec_right, uint8_t right_size) {
-    if (vec_left == NULL || vec_right == NULL) {
+float* concat_float_vector(float* vec_left, uint8_t left_size, float* vec_right, uint8_t right_size) 
+{
+    if (vec_left == NULL || vec_right == NULL) 
+    {
         printf("Uno de los vectores es NULL.\n");
         return NULL;
     }
 
     float* resulting_vector = (float*)malloc((left_size + right_size) * sizeof(float));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignaci\u00f3n de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < left_size; k++) {
+    for (uint8_t k = 0; k < left_size; k++) 
+    {
         resulting_vector[k] = vec_left[k];
     }
-    for (uint8_t m = 0; m < right_size; m++) {
+    for (uint8_t m = 0; m < right_size; m++) 
+    {
         resulting_vector[m + left_size] = vec_right[m];
     }
 
@@ -320,12 +325,15 @@ float* concat_float_vector(float* vec_left, uint8_t left_size, float* vec_right,
 * @param vec Puntero al vector de enteros.
 * @param cant Cantidad de elementos en el vector.
 */
-void show_double_vector(double *vec, uint8_t cant) {
-    if (vec == NULL) {
+void show_double_vector(double *vec, uint8_t cant) 
+{
+    if (vec == NULL) 
+    {
         printf("El vector es NULL.\n");
         return;
     }
-    for (uint8_t i = 0; i < cant; i++) {
+    for (uint8_t i = 0; i < cant; i++) 
+    {
         printf("%.2f\t", vec[i]);
     }
     printf("\n");
@@ -338,27 +346,36 @@ void show_double_vector(double *vec, uint8_t cant) {
 * @param new_size Nuevo tamaño deseado.
 * @return Puntero al nuevo vector redimensionado.
 */
-double* resize_double_vector(double* old_vector, uint8_t old_size, uint8_t new_size) {
-    if (new_size == 0) {
+double* resize_double_vector(double* old_vector, uint8_t old_size, uint8_t new_size) 
+{
+    if (new_size == 0) 
+    {
         printf("El nuevo tamaño no puede ser 0.\n");
         return NULL;
     }
 
     double* new_vector = (double*)malloc(new_size * sizeof(double));
-    if (new_vector == NULL) {
+    if (new_vector == NULL) 
+    {
         printf("Fallo en la asignación de memoria.\n");
         return NULL;
     }
 
-    if (new_size > old_size) {
-        for (uint8_t k = 0; k < old_size; k++) {
+    if (new_size > old_size) 
+    {
+        for (uint8_t k = 0; k < old_size; k++) 
+        {
             new_vector[k] = old_vector[k];
         }
-        for (uint8_t k = old_size; k < new_size; k++) {
+        for (uint8_t k = old_size; k < new_size; k++) 
+        {
             new_vector[k] = 0.0;
         }
-    } else {
-        for (uint8_t k = 0; k < new_size; k++) {
+    } 
+    else 
+    {
+        for (uint8_t k = 0; k < new_size; k++) 
+        {
             new_vector[k] = old_vector[k];
         }
     }
@@ -375,20 +392,29 @@ double* resize_double_vector(double* old_vector, uint8_t old_size, uint8_t new_s
 * @param item_pos Posición del elemento a eliminar.
 * @return Puntero al vector resultante.
 */
-double* removeItem_double_vector(double* vec, uint8_t vec_size, uint8_t item_pos) {
-    if (vec == NULL || item_pos >= vec_size) {
+double* removeItem_double_vector(double* vec, uint8_t vec_size, uint8_t item_pos) 
+{
+    if (vec == NULL || item_pos >= vec_size) 
+    {
         printf("Posición inválida para eliminar.\n");
         return NULL;
     }
 
     double* resulting_vector = (double*)malloc((vec_size - 1) * sizeof(double));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignación de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < vec_size - 1; k++) {
-        resulting_vector[k] = (k < item_pos) ? vec[k] : vec[k + 1];
+    for (uint8_t k = 0, j = 0; k < vec_size; k++) 
+    {
+        if (k != item_pos) 
+        {
+            resulting_vector[j] = vec[k];
+            resulting_vector[j] = vec[k];
+            j++;
+        }
     }
 
     free(vec);
@@ -404,24 +430,33 @@ double* removeItem_double_vector(double* vec, uint8_t vec_size, uint8_t item_pos
 * @param insert_value Valor a insertar.
 * @return Puntero al vector resultante.
 */
-double* insertItem_double_vector(double* vec, uint8_t vec_size, uint8_t insert_pos, double insert_value) {
-    if (vec == NULL || insert_pos > vec_size) {
+double* insertItem_double_vector(double* vec, uint8_t vec_size, uint8_t insert_pos, double insert_value) 
+{
+    if (vec == NULL || insert_pos > vec_size) 
+    {
         printf("Posición inválida para insertar.\n");
         return NULL;
     }
 
     double* resulting_vector = (double*)malloc((vec_size + 1) * sizeof(double));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignación de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < vec_size + 1; k++) {
-        if (k < insert_pos) {
+    for (uint8_t k = 0; k < vec_size + 1; k++) 
+    {
+        if (k < insert_pos) 
+        {
             resulting_vector[k] = vec[k];
-        } else if (k == insert_pos) {
+        } 
+        else if (k == insert_pos) 
+        {
             resulting_vector[k] = insert_value;
-        } else {
+        } 
+        else 
+        {
             resulting_vector[k] = vec[k - 1];
         }
     }
@@ -439,22 +474,27 @@ double* insertItem_double_vector(double* vec, uint8_t vec_size, uint8_t insert_p
 * @param right_size Tamaño del segundo vector.
 * @return Puntero al vector resultante.
 */
-double* concat_double_vector(double* vec_left, uint8_t left_size, double* vec_right, uint8_t right_size) {
-    if (vec_left == NULL || vec_right == NULL) {
+double* concat_double_vector(double* vec_left, uint8_t left_size, double* vec_right, uint8_t right_size) 
+{
+    if (vec_left == NULL || vec_right == NULL) 
+    {
         printf("Uno de los vectores es NULL.\n");
         return NULL;
     }
 
     double* resulting_vector = (double*)malloc((left_size + right_size) * sizeof(double));
-    if (resulting_vector == NULL) {
+    if (resulting_vector == NULL) 
+    {
         printf("Fallo en la asignación de memoria.\n");
         return NULL;
     }
 
-    for (uint8_t k = 0; k < left_size; k++) {
+    for (uint8_t k = 0; k < left_size; k++) 
+    {
         resulting_vector[k] = vec_left[k];
     }
-    for (uint8_t m = 0; m < right_size; m++) {
+    for (uint8_t m = 0; m < right_size; m++)
+    {
         resulting_vector[m + left_size] = vec_right[m];
     }
 
