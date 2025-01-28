@@ -1,0 +1,66 @@
+\doxysection{dinamic\+\_\+arrays\+\_\+functions\+\_\+library.\+h}
+\hypertarget{dinamic__arrays__functions__library_8h_source}{}\label{dinamic__arrays__functions__library_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_complex}{Complex}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_complex_a06ed4269b34924d748f2f77b17db7d21}{real}};\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_complex_add94d585be4b8a725d3a4cd3fabb7f98}{imag}};\ }
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ SHOW\ VECTOR.}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ show\_int\_vector(\textcolor{keywordtype}{int}\ *vec,\ uint8\_t\ cant);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ show\_float\_vector(\textcolor{keywordtype}{float}\ *vec,\ uint8\_t\ cant);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ show\_double\_vector(\textcolor{keywordtype}{double}\ *vec,\ uint8\_t\ cant);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ show\_Complex\_vector(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_complex}{Complex}}\ *vec,\ uint8\_t\ cant);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ INSERT\ ITEM.}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{int}*\ insertItem\_int\_vector(\textcolor{keywordtype}{int}*\ vec,\ uint8\_t\ vec\_size,\ uint8\_t\ insert\_pos,\ \textcolor{keywordtype}{int}\ insert\_value);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{float}*\ insertItem\_float\_vector(\textcolor{keywordtype}{float}*\ vec,\ uint8\_t\ vec\_size,\ uint8\_t\ insert\_pos,\ \textcolor{keywordtype}{float}\ insert\_value);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{double}*\ insertItem\_double\_vector(\textcolor{keywordtype}{double}*\ vec,\ uint8\_t\ vec\_size,\ uint8\_t\ insert\_pos,\ \textcolor{keywordtype}{double}\ insert\_value);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_complex}{Complex}}*\ insertItem\_Complex\_vector(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_complex}{Complex}}*\ vec,\ uint8\_t\ vec\_size,\ uint8\_t\ insert\_pos,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_complex}{Complex}}\ insert\_value);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ REMOVE\ ITEM.}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{int}*\ removeItem\_int\_vector(\textcolor{keywordtype}{int}*\ vec,\ uint8\_t\ vec\_size,\ uint8\_t\ item\_pos);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{float}*\ removeItem\_float\_vector(\textcolor{keywordtype}{float}*\ vec,\ uint8\_t\ vec\_size,\ uint8\_t\ item\_pos);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{double}*\ removeItem\_double\_vector(\textcolor{keywordtype}{double}*\ vec,\ uint8\_t\ vec\_size,\ uint8\_t\ item\_pos);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_complex}{Complex}}*\ removeItem\_Complex\_vector(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_complex}{Complex}}*\ vec,\ uint8\_t\ vec\_size,\ uint8\_t\ item\_pos);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ \ RESIZE.}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{int}*\ resize\_int\_vector(\textcolor{keywordtype}{int}*\ vec,\ uint8\_t\ size,\ uint8\_t\ new\_size);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{float}*\ resize\_float\_vector(\textcolor{keywordtype}{float}*\ vec,\ uint8\_t\ size,\ uint8\_t\ new\_size);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{double}*\ resize\_double\_vector(\textcolor{keywordtype}{double}*\ vec,\ uint8\_t\ size,\ uint8\_t\ new\_size);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_complex}{Complex}}*\ resize\_Complex\_vector(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_complex}{Complex}}*\ vec,\ uint8\_t\ size,\ uint8\_t\ new\_size);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{comment}{//\ CONCATENAR\ VECTORES.}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00181\ \textcolor{keywordtype}{int}*\ concat\_int\_vector(\textcolor{keywordtype}{int}*\ vec\_left,\ uint8\_t\ left\_size,\ \textcolor{keywordtype}{int}*\ vec\_right,\ uint8\_t\ right\_size);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00191\ \textcolor{keywordtype}{float}*\ concat\_float\_vector(\textcolor{keywordtype}{float}*\ vec\_left,\ uint8\_t\ left\_size,\ \textcolor{keywordtype}{float}*\ vec\_right,\ uint8\_t\ right\_size);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{double}*\ concat\_double\_vector(\textcolor{keywordtype}{double}*\ vec\_left,\ uint8\_t\ left\_size,\ \textcolor{keywordtype}{double}*\ vec\_right,\ uint8\_t\ right\_size);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_complex}{Complex}}*\ concat\_Complex\_vector(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_complex}{Complex}}*\ vec\_left,\ uint8\_t\ left\_size,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_complex}{Complex}}*\ vec\_right,\ uint8\_t\ right\_size);}
+
+\end{DoxyCode}
