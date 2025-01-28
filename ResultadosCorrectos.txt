@@ -1,0 +1,164 @@
+PS C:\Users\MAURO\Documents\DinamicArrays> gcc -c dinamic_arrays_test_voids_lib.c   
+PS C:\Users\MAURO\Documents\DinamicArrays> gcc dinamic_arrays_functions_library.o dinamic_arrays_test_voids_lib.o dinamic_arrays_main_program.o -o dinamic_arrays_main_program.exe
+PS C:\Users\MAURO\Documents\DinamicArrays> .\dinamic_arrays_main_program.exe               
+
+
+
+TESTING_INSERT_AND_REMOVE:
+
+INT:     
+
+Vector V:
+47      74      38      86      23      29      42      59      31      98
+
+Vector V (with a new item):
+47      74      38      86      23      29      42      137     59      31      98
+
+Vector V (without an old item):
+47      74      38      86      23      29      42      59      31      98
+
+
+FLOAT:
+
+Vector V:
+0.44    0.02    0.11    0.42    0.14    0.46    0.23    0.65    0.93    0.64
+
+Vector V (with a new item):
+0.44    0.02    0.11    0.42    0.14    0.46    0.23    0.64    0.65    0.93    0.64
+
+Vector V (without an old item):
+0.44    0.02    0.11    0.42    0.14    0.46    0.23    0.65    0.93    0.64
+
+
+DOUBLE:
+
+Vector V:
+0.45    0.67    0.48    0.89    0.93    0.13    0.47    0.25    0.32    0.05
+
+Vector V (with a new item):
+0.45    0.67    0.48    0.89    0.93    0.13    0.47    0.97    0.25    0.32    0.05
+
+Vector V (without an old item):
+0.45    0.67    0.48    0.89    0.93    0.13    0.47    0.25    0.32    0.05
+
+
+COMPLEX:
+
+Vector V:
+(0.69, 0.20)    (0.71, 0.30)    (0.05, 0.07)    (0.13, 0.49)    (0.57, 0.86)    (0.97, 0.65)    (0.24, 0.04)    (0.93, 0.79)    (0.05, 0.07) 
+(0.04, 0.18)
+
+Vector V (with a new item):
+(0.69, 0.20)    (0.71, 0.30)    (0.05, 0.07)    (0.13, 0.49)    (0.57, 0.86)    (0.97, 0.65)    (0.24, 0.04)    (0.57, 0.61)    (0.93, 0.79) 
+(0.05, 0.07)    (0.04, 0.18)
+
+Vector V (without an old item):
+(0.69, 0.20)    (0.71, 0.30)    (0.05, 0.07)    (0.13, 0.49)    (0.57, 0.86)    (0.97, 0.65)    (0.24, 0.04)    (0.93, 0.79)    (0.05, 0.07) 
+(0.04, 0.18)
+
+
+
+TESTING_RESIZE:
+
+INT:
+
+Vector V:
+18      43      62      52      79      48      92      81      23      36
+
+Vector V resized (new_size < old_size):
+18      43      62      52      79
+
+Vector V resized (new_size > old_size):
+18      43      62      52      79      0       0       0       0       0
+
+
+FLOAT:
+
+Vector V:
+0.22    0.28    0.55    0.52    0.36    0.89    0.72    0.77    0.98    0.75
+
+Vector V resized (new_size < old_size):
+0.22    0.28    0.55    0.52    0.36
+
+Vector V resized (new_size > old_size):
+0.22    0.28    0.55    0.52    0.36    0.00    0.00    0.00    0.00    0.00
+
+
+DOUBLE:
+
+Vector V:
+0.46    0.09    0.74    0.14    0.64    0.36    0.12    0.82    0.89    0.30
+
+Vector V resized (new_size < old_size):
+0.46    0.09    0.74    0.14    0.64
+
+Vector V resized (new_size > old_size):
+0.46    0.09    0.74    0.14    0.64    0.00    0.00    0.00    0.00    0.00
+
+
+COMPLEX:
+
+Vector V:
+(0.36, 0.31)    (0.49, 0.17)    (0.09, 0.11)    (0.27, 0.98)    (0.18, 0.27)    (0.51, 0.05)    (0.83, 0.28)    (0.97, 0.88)    (0.46, 0.57) 
+(0.99, 0.20)
+
+Vector V resized (new_size < old_size):
+(0.36, 0.31)    (0.49, 0.17)    (0.09, 0.11)    (0.27, 0.98)    (0.18, 0.27)
+
+Vector V resized (new_size > old_size):
+(0.36, 0.31)    (0.49, 0.17)    (0.09, 0.11)    (0.27, 0.98)    (0.18, 0.27)    (0.00, 0.00)    (0.00, 0.00)    (0.00, 0.00)    (0.00, 0.00)
+(0.00, 0.00)
+
+
+
+TESTING_CONCATENAR:
+
+INT:
+
+Vector V:
+67      41      69      69      98      42      8       1       56      24
+
+Vector U:
+86      44      23      7       85
+
+Vector concatenado:
+67      41      69      69      98      42      8       1       56      24      86      44      23      7       85
+
+
+FLOAT:
+
+Vector V:
+0.92    0.92    0.25    0.51    0.78    0.94    0.63    0.26    0.98    0.36
+
+Vector U:
+0.04    0.75    0.37    0.71    0.29
+
+Vector concatenado:
+0.92    0.92    0.25    0.51    0.78    0.94    0.63    0.26    0.98    0.36    0.04    0.75    0.37    0.71    0.29
+
+
+DOUBLE:
+
+Vector V:
+0.67    0.88    0.58    0.74    0.11    0.23    0.44    0.89    0.39    0.53
+
+Vector U:
+0.09    0.11    0.42    0.39    0.31
+
+Vector concatenado:
+0.67    0.88    0.58    0.74    0.11    0.23    0.44    0.89    0.39    0.53    0.09    0.11    0.42    0.39    0.31
+
+
+COMPLEX:
+
+Vector V:
+(0.99, 0.43)    (0.82, 0.58)    (0.05, 0.31)    (0.24, 0.64)    (0.35, 0.42)    (0.33, 0.74)    (0.91, 0.04)    (0.71, 0.13)    (0.26, 0.36) 
+(0.19, 0.88)
+
+Vector U:
+(0.04, 0.13)    (0.77, 0.59)    (0.19, 0.98)    (0.99, 0.92)    (0.37, 0.45)
+
+Vector concatenado:
+(0.99, 0.43)    (0.82, 0.58)    (0.05, 0.31)    (0.24, 0.64)    (0.35, 0.42)    (0.33, 0.74)    (0.91, 0.04)    (0.71, 0.13)    (0.26, 0.36) 
+(0.19, 0.88)    (0.04, 0.13)    (0.77, 0.59)    (0.19, 0.98)    (0.99, 0.92)    (0.37, 0.45)
+PS C:\Users\MAURO\Documents\DinamicArrays>
